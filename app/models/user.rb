@@ -4,5 +4,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  validates :email, format: URI::MailTO::Email_REGEXP
   enum role: %i[user admin]
 end
