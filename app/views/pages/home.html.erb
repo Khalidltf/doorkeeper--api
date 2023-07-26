@@ -11,9 +11,10 @@
 <p>u can test the API with following credentials:</p>
 
 <div class="container">
+  <%= @application.as_json %>
   <ul>
     <li><%= link_to "Web books", books_path  %></li>
-    <li>API V1 books</li>
+    <li><%= link_to "API V1 books", api_v1_books_path %> </li>
     <li>API V1 android books</li>
   </ul>
 </div>
