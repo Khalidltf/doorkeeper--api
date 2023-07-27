@@ -5,6 +5,10 @@ namespace :api do
       post '/', to: 'registrations#create', as: :user_registration
     end
     resources :books
+
+    namespace :android do
+      resources :books
+    end
   end
 end
 

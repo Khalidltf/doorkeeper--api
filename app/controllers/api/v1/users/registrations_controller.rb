@@ -2,12 +2,12 @@ module Api
   module V1
     module Users
       class RegistrationsController < ApiController
-        skip_before_action :doorkepper_authorize!, only: %i[create]
+        skip_before_action :doorkeeper_authorize!, only: %i[create]
 
         include DoorkeeperRegisterable
 
         def create
-          client_app = Doorkeeper::Application.find_by(uid: params[:client_id])
+          client_app = Doorkeeper::Application.find_by(uid: user_params[:client_id])
           unless client_app
             return render json: { error: I18n.t('doorkeeper.errors.messages.invalid_client') },
                             status: :unauthorized
